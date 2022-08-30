@@ -65,6 +65,7 @@ html {
 }
 
 .hdr__link {
+	display: block;
 	position: relative;
 	letter-spacing: 2;
 	line-height: 1;
@@ -944,22 +945,20 @@ html {
 
 
 
-
-
 /* preloader */
 
 .preloader {
 	position: fixed;
 	left: 0;
 	top: 0;
-	height: 100vh;
+	height: 100%;
 	width: 100%;
-	max-width: 100vw;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	z-index: 999;
 	opacity: 1;
+	overflow: hidden;
 	visibility: visible;
 	transition: .2s linear;
 }
@@ -1035,6 +1034,5 @@ html {
 .preloader.done {
 	opacity: 0;
 	visibility: hidden;
-	display: none;
 }
 
