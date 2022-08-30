@@ -1035,5 +1035,6 @@ html {
 .preloader.done {
 	opacity: 0;
 	visibility: hidden;
+	display: none;
 }
 
