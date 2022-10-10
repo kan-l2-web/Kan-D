@@ -21,6 +21,10 @@ html {
 	scroll-behavior: smooth;
 }
 
+html, body {
+	height: 100%;
+}
+
 .wrapper {
 	display: flex;
 	flex-direction: column;
@@ -31,6 +35,7 @@ html {
 ._container {
 	margin: 0 auto;
 	max-width: 1280px;
+	min-height: 100%;
 }
 
 .hdr__sup{
@@ -40,7 +45,6 @@ html {
 .hdr__sub {
 	background: var(--base-orange);
 	flex: 0 0;
-	height: 100%;
 }
 
 .hdr__container {
@@ -62,6 +66,7 @@ html {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	position: relative;
 }
 
 .hdr__link {
@@ -71,7 +76,8 @@ html {
 	line-height: 1;
 	text-align: center;
 	color: var(--white);
-	font-size: 27px;
+	font-size: calc(14px + 16 * (100vw / 1280));
+	/*font-size: 27px;*/
 	font-family: 'Comfortaa', cursive;
 }
 
@@ -92,6 +98,35 @@ html {
 .hdr__link:hover::after {
 	opacity: 1;
 	visibility: visible;
+}
+
+.hdr__arrow {
+	position: relative;
+	width: 32px;
+	height: 32px;
+	display: block;
+	border: 2px solid var(--white);
+	border-radius: 3px;
+	display: none;
+}
+
+.hdr__arrow::before {
+	content: '';
+	position: absolute;
+	left: 22%;
+	top: 50%;
+	width: 16px;
+	height: 16px;
+	display: block;
+	border: 3px solid var(--white);
+	border-width: 0 3px 3px 0px;
+	transform: rotate(46deg) translate(-50%, -50%);
+	transition: all .5s ease-out;
+}
+
+.hdr__arrow.active::before {
+	top: 0%;
+	transform: rotate(226deg) translate(-50%, -50%);
 }
 
 @media(max-width: 1169px) {
@@ -116,10 +151,6 @@ html {
 		align-items: center;
 		justify-content: space-between;
 	}
-
-	.hdr__link {
-		font-size: 22px;
-	}
 }
 
 @media(max-width: 787px) {
@@ -137,15 +168,35 @@ html {
 		font-family: 'Arimo', sans-serif;
 	}
 
+	.hdr__sub {
+		display: block;
+		overflow: hidden;
+		max-height: 42px;
+		transition: all .7s ease-out;
+	}
+
+	.hdr__sub.active {
+		max-height: 100vh;
+	}
+
 	.hdr__nav {
 		width: 100%;
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		justify-content: space-between;
+		flex-direction: column;
 	}
 
+	.hdr__arrow {
+		display: block;
+		align-self: end;
+	}
 	.hdr__link {
-		font-size: 18px;
+		padding: 5px 10px;
+	}
+
+	.font__size-text {
+		font-size: calc(14px + (16 + 16 * 0.7) * ((100vw - 320px) / 1280));
 	}
 }
 
@@ -164,15 +215,8 @@ html {
 		font-family: 'Arimo', sans-serif;
 	}
 
-	.hdr__nav {
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-
 	.hdr__link {
-		font-size: 14px;
+		
 	}
 }
 
@@ -1036,3 +1080,11 @@ html {
 	visibility: hidden;
 }
 
+.font__size-text {
+	font-size: calc(14px + 10 * (100vw / 1280));
+}
+@media (max-width: 797px){
+	.font__size-text {
+		font-size: calc(14px + 16 * (100vw / 1280));
+	}
+}

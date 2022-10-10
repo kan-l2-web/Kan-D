@@ -1,3 +1,13 @@
+const arrowBtn = document.querySelector('.hdr__arrow');
+const headerSub = document.querySelector('.hdr__sub');
+
+arrowBtn.addEventListener('click', function(e) {
+	e.preventDefault();
+	headerSub.classList.toggle('active');
+	arrowBtn.classList.toggle('active');
+});
+
+
 document.body.style.overflow = "hidden";
 
 document.body.onload = function () {
