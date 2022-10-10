@@ -1,7 +1,7 @@
 const arrowBtn = document.querySelector('.hdr__arrow');
 const headerSub = document.querySelector('.hdr__sub');
 
-arrowBtn.addEventListener('click', function(e) {
+arrowBtn.addEventListener('click', function (e) {
 	e.preventDefault();
 	headerSub.classList.toggle('active');
 	arrowBtn.classList.toggle('active');
@@ -12,7 +12,7 @@ document.body.style.overflow = "hidden";
 
 document.body.onload = function () {
 
-	setTimeout(function() {
+	setTimeout(function () {
 		const preloader = document.querySelector('.preloader');
 
 		if (!preloader.classList.contains('done')) {
@@ -21,7 +21,7 @@ document.body.onload = function () {
 			document.body.style.overflow = "auto";
 		}
 
-		setTimeout(() => {preloader.style.display = "none";}, 3000);
+		setTimeout(() => { preloader.style.display = "none"; }, 3000);
 	}, 1500);
 
 }
